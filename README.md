@@ -1,21 +1,16 @@
 # SILICLUSTER 2025 — UART Transmitter (TX) & Receiver (RX)
 
-### 👤 Author
-**Rohith Mudigonda**  
-Hardware Engineer | Ilensys Technologies  
-GitHub: [RohithVeer](https://github.com/RohithVeer)
-
 ---
 
-## 🔧 Project Overview
+##  Project Overview
 This repository includes two Verilog modules — **UART Transmitter (TX)** and **UART Receiver (RX)** — designed and verified for **Silicluster 2025** fabrication using the **SkyWater 130 nm PDK**.  
 Both modules meet all design, verification, and layout requirements.
 
 ---
 
-## 📘 Module Details
+##  Module Details
 
-### 🟣 UART Transmitter (TX)
+###  UART Transmitter (TX)
 - **Function:** Converts 8-bit parallel data into serial format with start/stop bits  
 - **Inputs:** `clk`, `rst`, `tx_start`, `tx_data[7:0]`  
 - **Outputs:** `tx`, `tx_busy`  
@@ -23,8 +18,8 @@ Both modules meet all design, verification, and layout requirements.
 - **Gate Count:** ~150  
 - **Simulation:** [EDAPlayground – UART TX](https://www.edaplayground.com/x/bCGt)
 
-### 🟢 UART Receiver (RX)
-- **Function:** Reconstructs received serial data into parallel 8-bit data  
+###  UART Receiver (RX)
+- **Function:** Reconstructs received serial data into parallel 8-bit data and detects framing errors  
 - **Inputs:** `clk`, `rx`  
 - **Outputs:** `rx_data[7:0]`, `rx_valid`, `framing_error`  
 - **Baud Rate:** 115200 bps | **Clock:** 50 MHz  
@@ -33,22 +28,22 @@ Both modules meet all design, verification, and layout requirements.
 
 ---
 
-## ⚙️ Silicluster Compliance Checklist
+##  Silicluster Compliance Checklist
 
 | Specification               | Status | Notes |
 |------------------------------|:------:|-------|
-| Max area (150×150 µm)        | ✅ | Verified via OpenLane |
-| Max 10 inputs / 10 outputs   | ✅ | TX: 4 I/O, RX: 10 I/O |
-| Single clock domain          | ✅ | Both modules |
-| Verilog 2005 compliant       | ✅ | No SystemVerilog used |
-| No loops (for/generate)      | ✅ | FSM-based sequential design |
-| Gate count ≤ 500             | ✅ | TX ~150, RX ~258 |
-| Functional testbench         | ✅ | Verified on EDAPlayground |
-| SkyWater 130 nm PDK          | ✅ | Fabrication compatible |
+| Max area (150×150 µm)        | ✅ Pass | Verified via OpenLane |
+| Max 10 inputs / 10 outputs   | ✅ Pass | TX 4 I/O, RX 10 I/O |
+| Single clock domain          | ✅ Pass | Both modules |
+| Verilog 2005 compliant       | ✅ Pass | No SystemVerilog constructs |
+| No loops (for/generate)      | ✅ Pass | FSM-based design |
+| Gate count ≤ 500             | ✅ Pass | TX ≈ 150, RX ≈ 258 |
+| Functional testbench included| ✅ Pass | Verified on EDAPlayground |
+| SkyWater 130 nm PDK          | ✅ Pass | Fabrication compatible |
 
 ---
 
-## 💻 Local Simulation Commands
+##  Local Simulation Commands
 
 ### UART TX
 ```bash
@@ -56,3 +51,15 @@ cd UART_TX
 iverilog -g2005 UART_TX_DUT.v UART_TESTBENCH.v -o uart_tx_tb.out
 vvp uart_tx_tb.out
 gtkwave uart_tx.vcd
+
+---
+
+##  Local Simulation Commands
+
+### UART TX
+```bash
+cd UART_RX
+iverilog -g2005 UART_RX.v UART_RX_TB.v -o uart_rx_tb.out
+vvp uart_rx_tb.out
+gtkwave uart_rx.vcd
+
