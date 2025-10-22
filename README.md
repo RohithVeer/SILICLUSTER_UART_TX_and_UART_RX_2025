@@ -81,12 +81,33 @@ Both modules meet all design, verification, and layout requirements.
 
 ---
 
+---
+
+## Outcome
+### UART TX
+<img width="709" height="751" alt="uart_tx" src="https://github.com/user-attachments/assets/c03f6927-c61b-49a5-8b86-72db2e3cfcb8" />
+
+### UART RX
+<img width="712" height="746" alt="uart_rx" src="https://github.com/user-attachments/assets/f1bd0962-74c3-42fe-890e-438ee8aeb301" />
+
+---
+
+## Acknowledgments 
+
+This project was developed as part of the **Silicluster 2025** open silicon initiative.  
+Special thanks to **[Uriel Jaramillo Toral](https://www.linkedin.com/in/uriel-jaramillo-toral-aab4b1199/)** — Organizer of Silicluster and an active contributor to the open-source silicon community.  
+
+**Silicluster** have provided designers and students worldwide with the opportunity to transform Verilog designs into fabricated silicon using the **SkyWater 130 nm PDK**.  
+
+### Additional acknowledgments:
+- **Silicluster Team** – for enabling global collaboration in silicon design.  
+- **SkyWater PDK & OpenLane** – for open-source ASIC design flow.  
+- **EDA Playground** – for rapid simulation and waveform verification.  
+
+---
+
 ## License
 This project is released under the **MIT License** — free for academic and open-source use.  
 Refer to the `LICENSE` file for details.
 
 ---
-
-## Outcome
-Both **UART TX** and **UART RX** modules are fully verified, silicon-ready, and compliant with all **Silicluster 2025** and **Sky130 PDK** requirements.  
-They serve as a complete, open-source UART subsystem suitable for academic and fabrication-grade projects.
